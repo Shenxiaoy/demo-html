@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制粘贴</title>
+</head>
+<body>
+<div>
+    <input type="text" id="content">
+    <br>
+    <button id='but'>复制</button>
+    <br>
+    <textarea name="" id="area" cols="30" rows="10"></textarea><br><br>
+    <p>---------------</p>
+    <button id="copy">copy('我是世界第一等')</button>
+    <button id="paste">paste</button>
+</div>
+<script>
+    /*
+    *  1、输入框选中复制
+    * */
+    var inputContent = document.getElementById('content')
+    var area = document.getElementById('area')
+    var but = document.getElementById('but')
+    but.addEventListener('click', function(e) {
+      var content = inputContent.select()
+      document.execCommand('copy')
+    })
+
+    /*
+    * 2、copy and paste
+    * 3、可以利用 ZeroClipboard 实现兼容copy、paste ；原理是要通过flash剪切板交互
+    * */
+    var butCopy = document.getElementById('copy')
+    var butPaste = document.getElementById('paste')
+    var body = document.body
+
+    butCopy.addEventListener('click', function(e) {
+      copy(e, '我是世界第一等')
+    })
+    butPaste.addEventListener('click', function (e) {
+      paste(e)
+    })
+    function copy(e, text) {
+      var clipboardData = window.clipboardData   //IE支持
+      if(!clipboardData) {
+        var textArea = document.createElement('textarea')
+        body.appendChild(textArea)
+
+        textArea.value = text
+        textArea.select()
+        document.execCommand('copy')
+        textArea.style.display = 'none'
+        alert('copy success！')
+        return
+      }
+
+      clipboardData.setData('text', text)
+      alert('复制成功')
+    }
+
+    function paste(e) {
+      var data = null
+      var clipboardData =   window.clipboardData  //IE支持
+      if(!clipboardData) {
+        // 待补充
+      }
+      data = clipboardData.getData('text')
+      area.value = data
+      alert('粘贴成功！' + data)
+
+    }
+
+
+
+</script>
+
+</body>
+</html>

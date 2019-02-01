@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setSelectionRange</title>
+    <style>
+        textarea{font-size:1em; width:500px; height:100px;}
+    </style>
+</head>
+<body>
+<div>
+    <textarea id="target"></textarea>
+    <p><button id="btn">插入话题</button></p>
+</div>
+<script>
+  var $ = function(id){
+    return document.getElementById(id);
+  };
+  $("btn").onclick = function(){
+    var con = "请在这里输入自定义话题";
+    //转载文字
+    $("target").value += "#"+con+"#";
+    var l = $("target").value.length;
+    //创建选择区域
+    if($("target").createTextRange){//IE浏览器
+      var range = $("target").createTextRange();
+      range.moveEnd("character",-l)
+      //range.moveStart("character",-l)
+      range.moveEnd("character",l-1);
+      range.moveStart("character", l-1-con.length);
+      range.select();
+    }else{
+      $("target").setSelectionRange(l-1-con.length,l-1);
+      $("target").focus();
+    }
+  };
+</script>
+<!--<script src="static/jquery-1.6.4.min.js"></script>-->
+</body>
+</html>

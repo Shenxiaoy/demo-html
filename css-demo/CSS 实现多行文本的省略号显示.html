@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 实现多行文本的省略号显示</title>
+    <style>
+        .box {
+            width: 30%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space:nowrap;
+
+        }
+        .box1 {
+            width: 300px;
+            height: 300px;
+        }
+        .box1 .one {
+            width: 100px;
+            float: left;
+        }
+        .box2 .two {
+            width: 200px;
+            float: right;
+
+        }
+    </style>
+</head>
+<body>
+<!--<div class="box">-->
+    <!--英文原文写作时间是2012.9.18号，比较有意义的一天。不过作者忽略了WebKit提供的一个扩展属性-webkit-line-clamp，它并不是CSS规范中的属性。利用该属性-->
+<!--</div>-->
+<div class="box1">
+<div class="one">11111111111</div>
+<div class="two">222222222222222</div>
+</div>
+</body>
+</html>

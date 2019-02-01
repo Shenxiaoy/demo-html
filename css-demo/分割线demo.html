@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分割线demo</title>
+    <style>
+        .wrap {
+            text-align: center;
+            width: 50%;
+            height: 200px;
+        }
+        .box {
+            display: table;
+        }
+
+        .box::before {
+            top: 50%;
+            width: 50%;
+            content: '';
+            display: table-cell;
+            position: relative;
+            border-top: 1px solid red;
+            transform: translateY(50%);
+            box-sizing: border-box;
+        }
+        .box::after {
+            top: 50%;
+            width: 50%;
+            content: '';
+            display: table-cell;
+            /*position: relative;*/
+            border-top: 1px solid red;
+            transform: translateY(50%);
+        }
+        .divider {
+            padding: 10px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="box">
+        <div class="divider">text分割线</div>
+    </div>
+</div>
+</body>
+</html>

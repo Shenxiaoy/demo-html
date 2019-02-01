@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遮罩层</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            box-shadow: 2px 2px 4px 2px #cccccc;
+            cursor: pointer;
+        }
+        .fixbox {
+            overflow: hidden;
+
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0 , .7);
+        }
+        .message {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+<p>背景文字背景文字背景文字背景文字</p>
+<div id="box" class="box">Hover Me</div>
+<div id="fixbox" style="display: none">
+    <div class="message">风暴警告</div>
+</div>
+<script>
+  var box = document.getElementById('box')
+  var fixbox = document.getElementById('fixbox')
+  box.addEventListener('click', function (e) {
+    fixbox.className = 'fixbox'
+    fixbox.style.display = 'block'
+  })
+</script>
+</body>
+</html>

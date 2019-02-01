@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>meta介绍</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+<a onClick="onc()">this one</a>
+<div style="width:400px; height:400px; border: 1px solid #f00;"></div>
+<div id="nn" style="border:1px solid #666">
+
+    <div style="height:900px;">this two</div>
+    <div>ffffffffffff</div>
+</div>
+<div>ggggggggggggggg</div>
+</body>
+<script>
+  function onc () {
+    var dd = document.getElementById("box").scrollIntoView(false);	 //这个意思其实就是将这个元素到顶部来浏览器窗口的顶部来显示
+  }
+
+</script>
+</html>

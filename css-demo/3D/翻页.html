@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html body div ul li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            width: 100px;
+        }
+
+        ul {
+            font-size: 0;
+            position: relative;
+        }
+        li {
+            position: relative;
+            width: 100px;
+            background: saddlebrown;
+            display: inline-block;
+        }
+        .paper {
+            transform-style: preserve-3d;
+        }
+
+        .page {
+            position: absolute;
+        }
+
+        .page-1-back, .page-2-back {
+            transform: scale(-1, 1);
+            display: inline-block;
+        }
+        .page-1,
+        .page-2 {
+            transform: translateZ(1px);
+        }
+        @keyframes flip-to-left {
+            from {
+                transform: perspective(600px) rotateY(0);
+            }
+            to {
+                transform: perspective(1000px) rotateY(-180deg);
+            }
+        }
+        .paper[data-right] {
+            transform-origin: left center;
+            animation: flip-to-left 2s ease-in-out forwards;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <ul class="pages">
+        <!--一个li.paper包含了正反两页-->
+        <li class="paper" data-left>
+            <!--一个.page就是一页内容-->
+            <div class="page page-1-back">
+                <img src="../../img/dota2/siwangxianzhi.jpg" alt>
+            </div>
+            <div class="page page-1">
+                <img src="../../img/dota2/fengxing.png" alt>
+            </div>
+        </li>
+        <li class="paper" data-right>
+            <div class="page page-2">
+                <img src="../../img/dota2/tufu.png" alt>
+            </div>
+            <div class="page page-2-back">
+                <img src="../../img/dota2/xiongde.jpg" alt>
+            </div>
+        </li>
+        <!--其它页内容省略-->
+    </ul>
+</div>
+<script>
+
+</script>
+</body>
+</html>

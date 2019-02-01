@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--https://github.com/tsayen/dom-to-image-->
+    <meta charset="UTF-8">
+    <title>demo to img</title>
+    <style>
+        .wrap {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <div class="wrap">
+        shenxiaoyu
+        <p style="margin-left: 20px">稍等法律手段附近受得了</p>
+        <p>
+            <img src="../../img/10-10.png" alt="">
+        </p>
+    </div>
+</div>
+<script src="../static/dom-to-imge.min.js"></script>
+<script>
+    var node = document.getElementById('box')
+    domtoimage.toPng(node)
+      .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+      });
+</script>
+
+</body>
+</html>

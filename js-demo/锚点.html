@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>锚点：通过scrollInotView api 实现锚点定位url保持不变</title>
+    <style>
+        a {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <a >ss</a>
+        <a >xx</a>
+        <a >yy</a>
+        <a class="sxy">sxy</a>
+    </div>
+    <div id="ss">
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+        <p>ssssssssssssssssssssssssssssssssssssssss</p>
+    </div>
+
+    <div id="yy">
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+        <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+    </div>
+    <div id="sxy">sxy</div>
+    <div id="xx">
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+    </div>
+</div>
+<script>
+    var link = document.querySelector('.sxy')
+    link.onclick = function(e) {
+      console.log(this.className)
+      document.querySelector('#sxy').scrollIntoView()
+    }
+
+</script>
+</body>
+</html>
